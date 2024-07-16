@@ -9,7 +9,6 @@ const Popup = ({ onClose, onPay, amount }) => {
         </button>
         <div>
           <h1>결제하기</h1>
-          <span>(1개월 결제 금액은 1000원 입니다.)</span>
         </div>
         <table>
           <tbody>

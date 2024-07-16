@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import AmountInput from "./AmountInput";
-import PaymentButton from "./PaymentButton";
-import PaymentPopup from "./PaymentPopup";
+import Popup from "./Popup";
 
 const App = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -62,10 +60,17 @@ const App = () => {
     <div>
       <input className="inputMonthH" type="hidden" />
       <input className="sessionuserID" type="hidden" value="user_id" />
-      <AmountInput value={amount} onChange={(e) => setAmount(e.target.value)} />
-      <PaymentButton onClick={openPopup} />
+
+      <input
+        className="amountValue"
+        type="text"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
+
+      <button onClick={openPopup}>결제하기</button>
       {isPopupOpen && (
-        <PaymentPopup onClose={closePopup} amount={amount} onPay={kakaopay} />
+        <Popup onClose={closePopup} onPay={kakaopay} amount={amount} />
       )}
     </div>
   );
